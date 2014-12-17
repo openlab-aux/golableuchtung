@@ -34,8 +34,6 @@ func (l *LabLeucht) SendPackage(pkg Package) error {
 		timeoutMult = time.Duration(pkg[0]) * 100
 	}
 
-	//fmt.Println("timeout is", timeoutMult*time.Millisecond+l.ResponseTimeout)
-
 	timeout := time.After(timeoutMult*time.Millisecond + l.ResponseTimeout)
 
 	_, err := l.Write([]byte(pkg))
